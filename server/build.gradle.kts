@@ -38,4 +38,11 @@ dependencies {
     implementation(libs.exposed.dao)
     implementation(libs.exposed.jdbc)
     implementation(libs.postgresql)
+
+    // encryption
+    implementation(libs.jbcrypt)
+
+    // koin
+    implementation(libs.koin.ktor)
+    implementation(libs.koin.logger.slf4j)
 }
