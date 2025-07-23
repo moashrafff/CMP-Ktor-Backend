@@ -1,5 +1,10 @@
 package com.moashrafff
 
+import com.moashrafff.data.database.factory.initDb
+import com.moashrafff.plugins.configureHTTP
+import com.moashrafff.plugins.configureRouting
+import com.moashrafff.plugins.configureSecurity
+import com.moashrafff.plugins.configureSerialization
 import io.ktor.server.application.*
 
 fun main(args: Array<String>) {
@@ -11,4 +16,5 @@ fun Application.module() {
     configureSerialization()
     configureSecurity()
     configureRouting()
+    initDb()
 }

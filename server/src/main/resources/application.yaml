@@ -8,3 +8,8 @@ jwt:
   domain: "https://jwt-provider-domain/"
   audience: "jwt-audience"
   realm: "ktor sample app"
+
+database:
+  url: "jdbc:mysql://localhost:3306/ktor_showcase_db"
+  driver: "com.mysql.cj.jdbc.Driver"
+  user: "ktor_moashrafff_db_user"
