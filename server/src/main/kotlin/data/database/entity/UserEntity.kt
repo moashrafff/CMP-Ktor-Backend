@@ -1,4 +1,4 @@
-package com.moashrafff.data.database
+package com.moashrafff.data.database.entity
 
 import com.moashrafff.data.database.tables.UserTable
 import com.moashrafff.domain.model.User
@@ -9,10 +9,10 @@ import org.jetbrains.exposed.dao.id.EntityID
 class UserEntity(id : EntityID<Long>) : LongEntity(id = id) {
     companion object : LongEntityClass<UserEntity>(UserTable)
 
-    val email by UserTable.email
+    var email by UserTable.email
     var name by UserTable.name
     var password by UserTable.password
 
-    fun toUser() = User(id = id.value, userName = name)
+    fun toUser() = User(id = id.value, userName = name, email = email)
 
 }
