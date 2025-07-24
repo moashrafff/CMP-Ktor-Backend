@@ -24,6 +24,5 @@ class NetworkService(val httpClient: HttpClient) : UserService {
             HttpMethod.Post,
             body = request
         )
-
 }
 
