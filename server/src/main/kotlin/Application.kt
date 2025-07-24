@@ -17,12 +17,13 @@ fun main(args: Array<String>) {
 fun Application.module() {
     configKoin()
     initDb()
+    configureSerialization()
+
 
     val userService = get<UserService>()
 
     configureHTTP()
-    configureSerialization()
-    configureSecurity()
-    configureRouting()
+    configureSecurity(userService = userService)
+    configureRouting(userService = userService)
 
 }

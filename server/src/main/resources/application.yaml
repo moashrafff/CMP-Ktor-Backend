@@ -7,7 +7,9 @@ ktor:
 jwt:
   domain: "https://jwt-provider-domain/"
   audience: "jwt-audience"
+  issuer: "https://0.0.0.0:8080/"
   realm: "ktor sample app"
+  claimField: "id"
 
 database:
   url: "jdbc:mysql://localhost:3306/ktor_showcase_db"

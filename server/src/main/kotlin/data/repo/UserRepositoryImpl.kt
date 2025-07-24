@@ -1,6 +1,6 @@
 package com.moashrafff.data.repo
 
-import com.moashrafff.data.database.UserEntity
+import com.moashrafff.data.database.entity.UserEntity
 import com.moashrafff.data.database.tables.UserTable
 import com.moashrafff.domain.model.User
 import com.moashrafff.domain.model.request.LoginRequest
@@ -13,12 +13,13 @@ class UserRepositoryImpl : UserRepository {
     override suspend fun createUser(registerRequest: RegisterRequest): User? {
         return dbQuery {
             val existingUser =
-                UserEntity.find { UserTable.email eq registerRequest.userName }.firstOrNull()
+                UserEntity.find { UserTable.email eq registerRequest.email }.firstOrNull()
             if (existingUser != null) {
                 return@dbQuery null
             }
             val newUser = UserEntity.new {
-                name = registerRequest.userName
+                this.name = registerRequest.name
+                this.email = registerRequest.email
                 this.password = registerRequest.password
             }
             return@dbQuery newUser.toUser()
