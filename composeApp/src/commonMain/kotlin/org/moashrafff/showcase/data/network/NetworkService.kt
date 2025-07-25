@@ -7,9 +7,9 @@ import org.moashrafff.showcase.data.dto.request.RegisterRequest
 import org.moashrafff.showcase.data.dto.response.LoginResponse
 import org.moashrafff.showcase.data.dto.response.RegisterResponse
 
-class NetworkService(val httpClient: HttpClient) : UserService {
-    val baseUrl = "https://localhost:8080"
+expect val baseUrl : String
 
+class NetworkService(val httpClient: HttpClient) : UserService {
     override suspend fun register(request: RegisterRequest): ResultWrapper<RegisterResponse> {
         return httpClient.makeNetworkRequest<RegisterResponse>(
             "$baseUrl/api/users/register",

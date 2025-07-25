@@ -1,4 +1,6 @@
 package org.moashrafff.showcase.data.dto.request
 
-class LoginRequest {
-}
+import kotlinx.serialization.Serializable
+
+@Serializable
+data class LoginRequest(val email: String, val password: String)

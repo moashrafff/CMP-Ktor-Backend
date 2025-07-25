@@ -26,6 +26,8 @@ ktorClientSerialization = "3.2.2"
 ktorServerNetty = "2.3.0"
 kotlinx-coroutines = "1.10.2"
 ktor-ok = "2.3.12"
+datastorePreferencesCore = "1.1.1"
+navigationCompose = "2.8.0-alpha02"
 
 [libraries]
 jbcrypt = { module = "org.mindrot:jbcrypt", version.ref = "jbcrypt" }
@@ -80,6 +82,10 @@ ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "kto
 ktor-client-serialization = { module = "io.ktor:ktor-client-serialization", version.ref = "ktorClientSerialization" }
 ktor-client-cio = { module = "io.ktor:ktor-client-cio", version.ref = "ktor-version" }
 ktor-client-logging = { module = "io.ktor:ktor-client-logging", version.ref = "ktor-version" }
+
+datastore = { module = "androidx.datastore:datastore", version.ref = "datastorePreferencesCore" }
+datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastorePreferencesCore" }
+navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
