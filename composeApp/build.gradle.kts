@@ -26,10 +26,28 @@ kotlin {
         iosTarget.binaries.framework {
             baseName = "ComposeApp"
             isStatic = true
+
+            linkerOpts.add("-lsqlite3")
+
         }
     }
 
     sourceSets {
+        val commonMain by getting
+
+        val jbMain by creating {
+            dependsOn(commonMain)
+        }
+
+        val iosX64Main by getting
+        val iosArm64Main by getting
+        val iosSimulatorArm64Main by getting
+        val iosMain by creating {
+            dependsOn(jbMain)
+            iosX64Main.dependsOn(this)
+            iosArm64Main.dependsOn(this)
+            iosSimulatorArm64Main.dependsOn(this)
+        }
 
         androidMain.dependencies {
             implementation(compose.preview)
@@ -61,6 +79,10 @@ kotlin {
             implementation(libs.ktor.client.content.negotiation)
             implementation(libs.ktor.serialization.kotlinx.json)
 
+
+            implementation(libs.lifecycle.viewmodel)
+            implementation(libs.lifecycle.viewmodel.compose)
+
             // koin
             api(libs.koin.core)
             implementation(libs.koin.compose)
@@ -68,11 +90,12 @@ kotlin {
 
             implementation(libs.datastore)
             implementation(libs.datastore.preferences)
+            // navigation
             implementation(libs.navigation.compose)
 
         }
         iosMain.dependencies {
-            implementation(libs.ktor.client.darwin)
+//            implementation(libs.ktor.client.darwin)
         }
 
         commonTest.dependencies {

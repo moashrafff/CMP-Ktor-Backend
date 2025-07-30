@@ -13,7 +13,7 @@ androidx-testExt = "1.2.1"
 composeMultiplatform = "1.8.2"
 jbcrypt = "0.4"
 junit = "4.13.2"
-kotlin = "2.0.20"
+kotlin = "2.1.21"
 logback = "1.5.18"
 ktor-version = "3.2.2"
 logback-version = "1.4.14"
@@ -27,7 +27,9 @@ ktorServerNetty = "2.3.0"
 kotlinx-coroutines = "1.10.2"
 ktor-ok = "2.3.12"
 datastorePreferencesCore = "1.1.1"
-navigationCompose = "2.8.0-alpha02"
+navigationCompose = "2.9.0-alpha14"
+lifecycleViewModel = "2.9.1"
+lifecycleViewmodelCompose = "2.9.0-beta01"
 
 [libraries]
 jbcrypt = { module = "org.mindrot:jbcrypt", version.ref = "jbcrypt" }
@@ -87,6 +89,11 @@ datastore = { module = "androidx.datastore:datastore", version.ref = "datastoreP
 datastore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "datastorePreferencesCore" }
 navigation-compose = { module = "org.jetbrains.androidx.navigation:navigation-compose", version.ref = "navigationCompose" }
 
+
+lifecycle-viewmodel-compose = { module = "org.jetbrains.androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycleViewmodelCompose" }
+lifecycle-viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel", version.ref = "lifecycleViewModel"}
+
+
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
@@ -96,3 +103,4 @@ kotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 ktor = { id = "io.ktor.plugin", version.ref = "ktor-version" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlinPluginSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+androidKotlinMultiplatformLibrary = { id = "com.android.kotlin.multiplatform.library", version.ref = "agp" }

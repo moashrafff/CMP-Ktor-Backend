@@ -12,16 +12,16 @@ import org.moashrafff.showcase.data.network.UserService
 import org.moashrafff.showcase.presentation.features.login.LoginState.*
 
 class LoginViewModel(val networkService: UserService, private val session: ShowcaseSession) : ViewModel() {
-    val _uiState = MutableStateFlow<LoginState>(LoginState.Nothing)
+    val _uiState = MutableStateFlow<LoginState>(Nothing)
     val uiState = _uiState.asStateFlow()
 
     fun login(email: String, password: String) {
-        _uiState.value = LoginState.Loading
+        _uiState.value = Loading
         viewModelScope.launch {
             val result = networkService.login(LoginRequest(email, password))
             when (result) {
                 is ResultWrapper.Success -> {
-                    _uiState.value = LoginState.Success
+                    _uiState.value = Success
                     session.saveToken(result.value.token)
                 }
 

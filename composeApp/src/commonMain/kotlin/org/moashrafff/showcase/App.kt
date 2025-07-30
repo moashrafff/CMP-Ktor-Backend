@@ -21,7 +21,6 @@ import org.moashrafff.showcase.navigation.NavRouts
 import org.moashrafff.showcase.presentation.features.login.LoginScreen
 import org.moashrafff.showcase.presentation.features.register.RegisterScreen
 
-
 @Composable
 @Preview
 fun App() {
@@ -35,6 +34,9 @@ fun App() {
             } else {
                 currentScreen.value = NavRouts.Login.route
             }
+            currentScreen.value = NavRouts.Login.route
+
+
         }
         val navController = rememberNavController()
         currentScreen.value?.let {
